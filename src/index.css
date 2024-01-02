@@ -1,77 +1,92 @@
-.sidebar {
+body {
   margin: 0;
-  padding: 0;
+  font-family: 'Arial', sans-serif; /* Set a suitable font */
+}
+
+.sidebar {
   width: 250px;
   background-color: #f1f1f1;
   position: fixed;
   height: 100%;
   overflow: auto;
+  padding-top: 20px;
 }
-.notes{
-color:#203562;
-font-size: 30px;
-font-weight: 600;
-line-height: 33.6px;
-padding: 37px;
+
+.notes {
+  color: #203562;
+  font-size: 24px;
+  font-weight: 600;
+  line-height: 1.2;
+  padding: 20px;
 }
-.note{
-  padding:3px 25px 5px;
+
+.note {
+  padding: 10px;
   background-color: #203562;
   border-radius: 8px;
-  margin-left:20px;
-  margin-right: 30px;
-  color:  #F5F5F5;
-  font-size: 18px;
+  margin: 0 20px 10px;
+  color: #f5f5f5;
+  font-size: 16px;
   font-weight: 500;
-  line-height: 33.6px; 
+  line-height: 1.2;
 }
-.div1{
-  position: absolute;
-  width: 1150px;
-  height: 350px;
-  flex-shrink: 0;
+
+.div1 {
+  position: relative;
+  max-width: 1150px;
+  margin: 30px auto;
   border-radius: 16px;
-  background:#F5F5F5;
+  background: #f5f5f5;
   box-shadow: 2px 4px 16px 0px rgba(32, 53, 98, 0.47);
-  margin-left: 295px;
-  margin-top: 30px;
   opacity: 0.8;
 }
-.wrapper{
-  padding:15px;
+
+.wrapper {
+  padding: 15px;
 }
-.form-control{
-  border:none !important;
-  background-color: #F5F5F5;
-  color:#203562;
+
+.form-control {
+  border: none !important;
+  background-color: #f5f5f5;
+  color: #203562;
   font-weight: 500;
-  font-size:20px;
+  font-size: 16px;
+  padding: 10px;
+  width: 100%;
 }
-h3{
-  color:#203562;
+
+h3 {
+  color: #203562;
   font-weight: 500;
 }
-.div2{
-  margin-top: 500px;
-  position: absolute;
-  margin-left: 290px;
-  margin-right:25px;
+
+.div2 {
+  margin-top: 20px;
 }
-.mynote{
-  margin-left:290px;
-  margin-top:420px;
-  position:absolute;
-  color:#203562;
+
+.mynote,
+.recent {
+  color: #203562;
   font-weight: 600;
-  font-size:20px;
+  font-size: 18px;
+  margin-top: 20px;
 }
-span{
- float:right;
-}
-.recent{
-  margin-left:300px;
-  margin-top:470px;
-  position:absolute;
-  color:#203562;
-  font-weight: 600;
+
+/* Media Query for Responsive Design */
+@media screen and (max-width: 768px) {
+  .sidebar {
+    width: 100%;
+    position: static;
+  }
+
+  .div1 {
+    margin-left: 0;
+    max-width: 100%;
+  }
+
+  .div2,
+  .mynote,
+  .recent {
+    margin-left: 0;
+  }
 }
