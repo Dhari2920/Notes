@@ -1,32 +1,43 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
 
-function Sidebar() {
+import { BrowserRouter, Route, Routes } from 'react-router-dom'
+import Sidebar from './components/Sidebar'
+import Notes from './components/Notes'
+import Edit from './components/Edit'
+import { Navigate } from 'react-router-dom'
+import NotesContext from './components/context/NotesContext'
+function App() {
+  
+
   return (
-    <div className="col-lg-2" style={{ backgroundColor: '#F5F5F5' }}>
-      <div className="container-fluid">
-        <nav className="navbar navbar-expand-lg d-flex flex-wrap">
-          <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#myNavBar">
-            <span className="navbar-toggler-icon"></span>
-          </button>
-          <div className="navbar-brand">
-            <h2 style={{ color: '#203562' }}>Notes App</h2>
+    <>
+       <div className='container-fluid'>
+          <div className='row'>
+              <BrowserRouter>
+                   
+                   <Routes>
+                       <Route  path='/notes'  element={
+                       <NotesContext>
+                         <Sidebar/>
+                         <Notes/>
+                        </NotesContext>} />
+                      
+                        <Route path='/edit/:id' element={
+                        <NotesContext>
+                          <Sidebar/>
+                          <Edit/>
+                        </NotesContext>}/>
+                        <Route path='/*'   element={<Navigate to='/notes'/>}/>
+                       
+                   </Routes>
+                      
+              </BrowserRouter>
+                       
+                    
           </div>
-          <div className="collapse navbar-collapse" id="myNavBar">
-            <ul className="nav nav-pills flex-column mt-3">
-              <li className="nav-item d-flex">
-                <Link to="/notes" className="rounded-2" style={{ textDecoration: 'none', color: 'white', fontSize: '25px', backgroundColor: '#203562' }}>
-                  <i className="fa-regular fa-file-lines fa-sm p-4"></i>
-                  <span className="me-5 p-2">Notes</span>
-                </Link>
-              </li>
-              <br />
-            </ul>
-          </div>
-        </nav>
-      </div>
-    </div>
-  );
+            
+       </div>
+    </>
+  )
 }
 
-export default Sidebar;
+export default App
